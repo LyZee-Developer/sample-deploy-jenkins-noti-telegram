@@ -53,17 +53,14 @@ pipeline {
                                 Your service deploy to production was fail ❌
                                 """
                                 SendMessageToTelegram("${msg}","${CHAT_ID}","${TELEGRAM_TOKEN}")
+                                error "Stopping pipeline due to Quality Gate failure"
                             }
                     }
                 }
             }
         }
         stage('Login user to docker') {
-            when{
-                expression{
-                    currentBuild.result == 'SUCCESS'
-                }
-            }
+            
             steps {
                 withCredentials([usernamePassword(credentialsId: 'DOCKER_USER_NAME_PW', passwordVariable: 'PW', usernameVariable: 'UserDockerCode')]) {
                     script{
@@ -74,11 +71,7 @@ pipeline {
             }
         }
         stage('Build push deploy project by docker hub') {
-            when{
-                expression{
-                    currentBuild.result == 'SUCCESS'
-                }
-            }
+          
             steps {
                 withCredentials([usernamePassword(credentialsId: 'DOCKER_USER_NAME_PW', passwordVariable: 'PW', usernameVariable: 'UserDockerCode')]) {
                     script{

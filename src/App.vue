@@ -3,7 +3,7 @@
 <template>
   <div>
      <h1>Ly Zee Devops</h1>
-     <div>fail or success</div>
+     <!-- <div>fail or success</div> -->
   </div>
 </template>
 <script setup>
