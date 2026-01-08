@@ -1,4 +1,4 @@
-FROM node:lts-alpine as build
+FROM node:lts-alpine AS build
 WORKDIR /app
 COPY package*.json ./
 RUN npm install
@@ -6,7 +6,7 @@ COPY . .
 RUN npm run build
 
 # Stage 2: Serve the application with Nginx
-FROM nginx:alpine as production-stage
+FROM nginx:alpine AS production-stage
 # Create an app directory and copy built files
 RUN mkdir /app
 COPY --from=build /app/dist /usr/share/nginx/html

@@ -4,7 +4,6 @@
   <div>
      <h1>Ly Zee Devops</h1>
      <div>fail or success</div>
-     {{ testong }}
   </div>
 </template>
 <script setup>
