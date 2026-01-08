@@ -4,7 +4,7 @@
   <div>
      <h1>Ly Zee Devops</h1>
      <div>fail or success</div>
-     <div>devope test</div>
+     <!-- <div>devope test</div> -->
   </div>
 </template>
 <script setup>
