@@ -4,6 +4,7 @@
   <div>
      <h1>Ly Zee Devops</h1>
      <div>fail or success</div>
+     <div>{{ what }}</div>
   </div>
 </template>
 <script setup>
